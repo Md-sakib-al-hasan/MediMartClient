@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/select"
 import Link from 'next/link';
 import Image from 'next/image';
+import Register from '@/components/modules/auth/register/Register';
+import Login from '@/components/modules/auth/Login/login';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -26,13 +28,31 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
+
+
+  const handleClose = () => {
+    setIsLogin(false);
+    setIsRegister(false);
+  }
+  
+  const handleSignIn = () => {
+    setIsLogin(true);
+    setIsRegister(false);
+  }
+
+  const handleRegister = () => {
+    setIsRegister(true);
+    setIsLogin(false);
+  }
 
   return (
     <nav className="flex items-center container mx-auto  justify-between  p-4  bg-white">
       {/* Logo */}
       <div className="">
         <div className='w-9/12 flex justify-end'>
-        <Image src="/logo.png"  alt="Medilazar" className="" />
+        <Image src="/logo.png" width={30} height={20}  alt="Medilazar" className="" />
         
         </div>
         <div className='flex flex-col'>
@@ -114,9 +134,10 @@ export default function Navbar() {
 
         {/* Icons */}
         <div className="flex w-[30%] justify-between items-center">
-      <Link href="/signin" className="flex items-center gap-1 ">
-        <User size={25} /> <span className='text-[12px]  text-black uppercase font-semibold hover:text-[#2ea5b6]'>Sign In</span> / <span className='text-[12px] text-black font-semibold hover:text-[#2ea5b6] uppercase'> Register</span> 
-      </Link>
+      <div  className="flex items-center gap-1 ">
+        <User size={25} /> <span className='text-[12px]  text-black uppercase font-semibold hover:text-[#2ea5b6]'><button onClick={handleSignIn} >Sign In</button> {<div className=' w-full z-50 top-0 left-0 absolute'> {isLogin && <Login handleClose={handleClose} handleRegister={handleRegister} />} || {isRegister && <Register handleSignIn={handleSignIn} handleClose={handleClose} />}
+        </div>}  </span> / <span className='text-[12px] text-black font-semibold hover:text-[#2ea5b6] uppercase'><button onClick={handleRegister}> Register</button></span> 
+      </div>
       <Link href="/wishlist" className='hover:text-[#2ea5b6]'>
         <Heart size={25} />
       </Link>

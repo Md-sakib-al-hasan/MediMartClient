@@ -9,6 +9,8 @@ import Image from 'next/image';
 import { Button } from '../../button';
 import { ArrowRight } from 'lucide-react';
 import { RiMedicineBottleLine } from 'react-icons/ri';
+import { TbTruckDelivery } from 'react-icons/tb';
+import { FaHandHoldingDollar } from 'react-icons/fa6';
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -86,8 +88,8 @@ export const Carousel = () => {
                     <li className='lg:text-5xl  md:text-3xl font-bold'>Your Cancer care <br></br>  companion</li>
                     <li className=' hidden md:grid lg:grid-cols-3 md:grid-cols-2 md:space-y-4 lg:max-w-[500px] md:max-w-[300px]'>
                       <span className='flex items-center gap-2'> <RiMedicineBottleLine className='bg-white w-14 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Temperature controlled meds</span></span>
-                      <span className='flex items-center gap-2'> <RiMedicineBottleLine className='bg-white w-14 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Temperature controlled meds</span></span>
-                      <span className='flex items-center gap-2'> <RiMedicineBottleLine className='bg-white w-14 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Temperature controlled meds</span></span>
+                      <span className='flex items-center gap-2'> <TbTruckDelivery className='bg-white w-10 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Free Doorstep Delivery</span></span>
+                      <span className='flex items-center gap-2'> <FaHandHoldingDollar className='bg-white w-10 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Up to 70% Off</span></span>
                     </li>
                     <Button className='md:py-6 !px-6'>
                       <div>Shop now</div> <ArrowRight />
