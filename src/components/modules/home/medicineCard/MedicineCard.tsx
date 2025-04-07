@@ -29,7 +29,7 @@ const MedicineCard = () => {
   ];
 
   return (
-    <div className="md:flex container mx-auto  px-4 gap-8 md:space-y-0 space-y-10">
+    <div className="md:flex container mx-auto  px-4 gap-8 md:space-y-0 space-y-10 py-10 ">
       {cards.map((card, index) => (
          <div key={index} className="w-full relative">
             <div className="absolute inset-0 flex items-center group ">

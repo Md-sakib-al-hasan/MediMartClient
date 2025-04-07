@@ -37,7 +37,7 @@ const categories = [
 
 export default function CategoriesComponent() {
   return (
-    <div className="grid container mx-auto md:justify-items-start lg:ml-[2%] xl:ml-[8%] justify-items-center  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-4">
+    <div className="grid py-10 container mx-auto md:justify-items-start lg:ml-[2%] xl:ml-[8%] justify-items-center  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 p-4">
       {categories.map((category, index) => (
         <div key={index} className="flex md:flex-row flex-col  items-center space-x-4">
           <div className={`w-12 h-12 flex items-center justify-center rounded-full ${category.bgColor}`}>

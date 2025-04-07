@@ -126,7 +126,7 @@ export default function ProductsSlider() {
       </Button>
       <div ref={sliderRef} className="keen-slider  container  mx-auto ">
         {data.map((product, index) => (
-            <div key={index} className="keen-slider__slide md:pl-0 pl-9" >
+            <div key={index} className="keen-slider__slide md:pl-0 md:justify-start md:items-start  flex flex-col justify-center items-center" >
               <ProductCard   {...product} />
             </div>
         ))}

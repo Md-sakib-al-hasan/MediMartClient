@@ -48,7 +48,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center container mx-auto  justify-between  p-4  bg-white">
+    <nav className='w-full bg-white'>
+      <div className="flex items-center container mx-auto  justify-between  p-4  bg-white">
       {/* Logo */}
       <div className="">
         <div className='w-9/12 flex justify-end'>
@@ -150,6 +151,7 @@ export default function Navbar() {
       </Link>
     </div>
       </div>
+    </div>
     </nav>
   );
 }

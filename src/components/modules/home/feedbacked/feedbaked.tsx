@@ -55,7 +55,7 @@ export default function Feedbacked() {
   });
 
   return (
-    <section >
+    <section className="py-10" >
       <h2 className="lg:text-3xl text-2xl font-bold text-center mb-10 ">Trusted by 10 Lakh Customers <br></br> across 3600+ Cities</h2>
       <div className="relative w-full   mx-auto">
       <Button
@@ -64,35 +64,36 @@ export default function Feedbacked() {
       >
         <ChevronLeft />
       </Button>
-      <div ref={sliderRef} className="keen-slider container  mx-auto ">
-        {data.map((item, index) => (
-          <div key={index} className="keen-slider__slide">
-            <Card key={item.id} className="border-none shadow-sm">
-            <CardContent className="p-6">
-              <div className="flex text-yellow-400 mb-4">
-                {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-6">
-                {item.text}
-              </p>
-              <div className="flex items-center mt-20">
-                <div className="mr-4">
-                  <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
-                    <User className="h-6 w-6 text-gray-500" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">{item.name}</h4>
-                  <p className="text-gray-500 text-sm">{item.date}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+      <div ref={sliderRef} className="keen-slider container mx-auto flex">
+  {data.map((item, index) => (
+    <div key={index} className="keen-slider__slide flex">
+      <Card key={item.id} className="border-none shadow-sm flex-1 flex flex-col">
+        <CardContent className="p-6 flex flex-col flex-1">
+          <div className="flex text-yellow-400 mb-4">
+            {[...Array(item.rating)].map((_, i) => (
+              <Star key={i} className="h-5 w-5 fill-current" />
+            ))}
           </div>
-        ))}
-      </div>
+          <p className="text-gray-600 mb-6 flex-1">
+            {item.text}
+          </p>
+          <div className="flex items-center mt-6">
+            <div className="mr-4">
+              <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
+                <User className="h-6 w-6 text-gray-500" />
+              </div>
+            </div>
+            <div>
+              <h4 className="font-medium text-gray-900">{item.name}</h4>
+              <p className="text-gray-500 text-sm">{item.date}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  ))}
+</div>
+
       <Button
         className=" hidden lg:block absolute right-2  top-1/2 transform -translate-y-1/2 z-10"
         onClick={() => instanceRef.current?.next()}

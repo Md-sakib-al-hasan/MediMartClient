@@ -17,7 +17,7 @@ import Carousel from "@/components/ui/core/Carousel/Carousel";
 
 export default function Home() {
   return (
-       <div className="space-y-10">
+       <div >
         <Carousel/>
         <CategoriesComponent/>
         <MedicineCard/>

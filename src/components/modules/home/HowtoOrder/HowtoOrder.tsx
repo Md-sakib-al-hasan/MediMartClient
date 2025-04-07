@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ArrowRight, ChevronUp } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import banneriamge from "@/assets/home/HowtoorderBanner.png"
 
@@ -75,12 +75,7 @@ export default function HowtoOrder() {
       </div>
       
       {/* Floating back to top button - responsive sizing */}
-      <Button 
-        className="fixed bottom-4 px-96 sm:bottom-6 right-4 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-teal-500 hover:bg-teal-600 text-white flex items-center justify-center shadow-lg"
-        aria-label="Back to top"
-      >
-        <ChevronUp className="h-5 w-5" />
-      </Button>
+      
     </div>
   )
 }

@@ -92,7 +92,7 @@ const data = [
   },
 ]
 
-export default function DailyWillBeing() {
+export default function PopulerMedicine() {
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: {
@@ -115,8 +115,8 @@ export default function DailyWillBeing() {
   });
 
   return (
-    <section className="bg-[#f2f9ff]">
-      <h2 className="lg:text-3xl text-2xl font-bold text-center py-10 ">Daily Well-being</h2>
+    <section className=" pb-10">
+      <h2 className="lg:text-3xl text-2xl container mx-auto font-bold  pl-10 py-10 ">Related products</h2>
       <div className="relative w-full   mx-auto">
       <Button
         className="absolute hidden lg:block left-2  top-1/2 transform -translate-y-1/2 z-10"
@@ -124,7 +124,7 @@ export default function DailyWillBeing() {
       >
         <ChevronLeft />
       </Button>
-      <div ref={sliderRef} className="keen-slider  container  mx-auto ">
+      <div ref={sliderRef} className="keen-slider  container  mx-auto  ">
         {data.map((product, index) => (
             <div key={index} className="keen-slider__slide md:pl-0 md:justify-start md:items-start  flex flex-col justify-center items-center" >
               <ProductCard   {...product} />

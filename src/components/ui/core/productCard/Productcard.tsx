@@ -3,6 +3,9 @@
 import { useState } from "react"
 import { Heart, Share2, Eye, ShoppingBasket } from "lucide-react"
 import Image, { StaticImageData } from "next/image";
+import { Rating } from "../rating/Rating";
+import { useRouter } from "next/navigation";
+
 
 interface ProductCardProps {
   title: string
@@ -22,10 +25,10 @@ export default function ProductCard({
   image = "/placeholder.svg?height=200&width=200",
 }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-
+  const router = useRouter()
   return (
     <div
-      className="relative w-full max-w-[300px] min-w-[300px] bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
+      className="relative w-full max-w-[300px]  min-w-[350px] bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -52,13 +55,13 @@ export default function ProductCard({
       </div>
 
       {/* Product image */}
-      <div className="p-6 flex justify-center items-center bg-gray-50">
+      <div className="p-6 flex xl:justify-center items-center bg-gray-50">
         <Image
           src={image || "/placeholder.svg"}
           alt={title}
           width={180}
           height={180}
-          className="object-contain h-[180px] transition-transform duration-300"
+          className="object-contain  h-[180px] transition-transform duration-300"
           style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
         />
       </div>
@@ -67,16 +70,7 @@ export default function ProductCard({
       <div className="p-4">
         <div className="text-xs line-clamp-1 text-gray-500 mb-1">{categories.join(", ")}</div>
         <h3 className="font-medium line-clamp-1 text-gray-900 mb-2">{title}</h3>
-        <div className="flex items-center mb-3">
-          {[1, 2, 3, 4].map((star) => (
-            <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
-          <svg className="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        </div>
+        <Rating/>
         <div className="flex items-center justify-between">
           <div>
             <span className="text-gray-500 line-through text-sm">${price.toFixed(2)}</span>
@@ -88,14 +82,14 @@ export default function ProductCard({
       {/* Add to cart button */}
       <div className="px-4 pb-4">
         
-        <button
+        <button  onClick={() => router.push('/medicine/1')}
           className=" bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-md flex items-center justify-center gap-2 transition-all duration-300"
           style={{
             transform: isHovered ? "translateY(0)" : "translateY(5px)",
             opacity: isHovered ? 1 : 0.9,
           }}
         >
-          <ShoppingBasket className="w-4 h-4" />
+          <ShoppingBasket   className="w-4 h-4" />
           ADD TO CART
         </button>
       </div>
