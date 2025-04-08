@@ -19,10 +19,8 @@ import Login from '@/components/modules/auth/Login/login';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Shop', path: '/shop' },
-  { name: 'Page', path: '/page' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'On sale', path: '/on-sale' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'wishlist', path: '/whiteList' },
+  { name: 'orders', path: '/drashboard/orders' },
 ];
 
 
@@ -139,7 +137,7 @@ export default function Navbar() {
         <User size={25} /> <span className='text-[12px]  text-black uppercase font-semibold hover:text-[#2ea5b6]'><button onClick={handleSignIn} >Sign In</button> {<div className=' w-full z-50 top-0 left-0 absolute'> {isLogin && <Login handleClose={handleClose} handleRegister={handleRegister} />} || {isRegister && <Register handleSignIn={handleSignIn} handleClose={handleClose} />}
         </div>}  </span> / <span className='text-[12px] text-black font-semibold hover:text-[#2ea5b6] uppercase'><button onClick={handleRegister}> Register</button></span> 
       </div>
-      <Link href="/wishlist" className='hover:text-[#2ea5b6]'>
+      <Link href="/whiteList" className='hover:text-[#2ea5b6]'>
         <Heart size={25} />
       </Link>
       <Link href="/cart" className="relative flex gap-2 hover:text-[#2ea5b6]">
