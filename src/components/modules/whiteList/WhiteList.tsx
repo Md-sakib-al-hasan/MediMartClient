@@ -6,7 +6,8 @@ import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import producticon from "@/assets/medicine/product-19.jpg"
 import { useRouter } from "next/navigation"
-import Contact from "../userDashboard/contact/Contact"
+import Contact from "../drashboard/contact/Contact"
+
 
 interface WishlistItem {
   id: string
