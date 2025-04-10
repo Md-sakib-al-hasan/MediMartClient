@@ -11,10 +11,11 @@ import { ArrowRight } from 'lucide-react';
 import { RiMedicineBottleLine } from 'react-icons/ri';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { FaHandHoldingDollar } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-
+  const router = useRouter();
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % 3);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + 3) % 3);
  
@@ -61,7 +62,7 @@ export const Carousel = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button className='md:py-6 !px-6'>
+            <Button onClick={() => router.push('/shop')} className='md:py-6 !px-6'>
               <div>Shop now</div> <ArrowRight />
             </Button>
           </motion.div>
@@ -91,7 +92,7 @@ export const Carousel = () => {
                       <span className='flex items-center gap-2'> <TbTruckDelivery className='bg-white w-10 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Free Doorstep Delivery</span></span>
                       <span className='flex items-center gap-2'> <FaHandHoldingDollar className='bg-white w-10 h-10 px-2  rounded-full text-[#2ea5b6]' /> <span className='text-sm'>Up to 70% Off</span></span>
                     </li>
-                    <Button className='md:py-6 !px-6'>
+                    <Button onClick={() => router.push('/shop')} className='md:py-6 !px-6'>
                       <div>Shop now</div> <ArrowRight />
                     </Button>
                 </ul>
@@ -137,7 +138,7 @@ export const Carousel = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button className='md:py-6 !px-6'>
+            <Button onClick={() => router.push('/shop')} className='md:py-6 !px-6'>
               <div>Shop now</div> <ArrowRight />
             </Button>
           </motion.div>

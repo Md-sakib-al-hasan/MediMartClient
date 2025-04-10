@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useRouter } from "next/navigation"
+import { AddUserDialog } from "./adduser/Adduser"
 
 // Sample user data
 const users = [
@@ -71,6 +72,7 @@ const users = [
 export default function UserMangement() {
   const [selectedUser, setSelectedUser] = useState<string | null>(null)
   const [statusFilter, setStatusFilter] = useState("All")
+  const [isOpenAdduser,setOpenaddUser] = useState(false)
   console.log(statusFilter)
   const router = useRouter()
   return (
@@ -99,7 +101,7 @@ export default function UserMangement() {
             </div>
             <div className="flex items-center gap-2">
              
-              <Button size="sm" className="h-8 gap-1 bg-[#24aeb1] hover:bg-[#1e9799]">
+              <Button onClick={() => setOpenaddUser(prev => !prev)} size="sm" className="h-8 gap-1  hover:bg-[#1e9799]">
                 <Plus className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add User</span>
               </Button>
@@ -191,7 +193,7 @@ export default function UserMangement() {
                                 <DropdownMenuContent align="end">
                                   <DropdownMenuLabel>Actions</DropdownMenuLabel>
                                   <DropdownMenuItem>View details</DropdownMenuItem>
-                                  <DropdownMenuItem>View orders</DropdownMenuItem>
+                                 
                                   <DropdownMenuSeparator />
                                   
                                   <DropdownMenuItem className="text-red-600">Delete user</DropdownMenuItem>
@@ -206,6 +208,9 @@ export default function UserMangement() {
                 </CardContent>
               </Card>
             </div>
+            {
+               < AddUserDialog isOpenadduser = {isOpenAdduser} setOpenaddUser={setOpenaddUser}/>
+            }
             {selectedUser && (
               <div className="w-full lg:w-[350px] sticky top-20 self-start">
                 <Card>
@@ -220,6 +225,7 @@ export default function UserMangement() {
 
                       return (
                         <div className="space-y-4">
+                           
                           <div>
                             <h3 className="font-semibold text-[#24aeb1]">{user.name}</h3>
                             <p className="text-sm text-muted-foreground">{user.email}</p>
@@ -245,6 +251,7 @@ export default function UserMangement() {
                           </div>
 
                           <Tabs defaultValue="orders">
+                            
                             <TabsList className="w-full">
                               <TabsTrigger value="orders" className="flex-1">
                                 Orders
@@ -255,6 +262,7 @@ export default function UserMangement() {
                             </TabsList>
                             <TabsContent value="orders" className="space-y-4 pt-3">
                               <div className="rounded-lg border p-3">
+                                
                                 <div className="flex justify-between">
                                   <div>
                                     <p className="text-sm font-medium">Order #1089</p>
@@ -299,9 +307,13 @@ export default function UserMangement() {
                                 </div>
                               </div>
 
-                              <Button onClick={() => router.push('admin/singleuser/1')} variant="outline" size="sm" className="w-full">
+                              <Button onClick={() => router.push('/admin/singleuser/1')} variant="outline" size="sm" className="w-full">
                                 View all orders
                               </Button>
+                              <Button onClick={() => setSelectedUser(null)} variant="outline" size="sm" className="w-full">
+                                close
+                              </Button>
+                              
                             </TabsContent>
                             <TabsContent value="activity" className="space-y-4 pt-3">
                               <div className="space-y-4">

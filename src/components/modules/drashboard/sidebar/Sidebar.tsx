@@ -15,10 +15,16 @@ import { usePathname } from "next/navigation"
  ]
  const admin = [
   {
+    name:"Drashboard", path:"/admin/drashboard"
+  },
+  {
     name:"User Management", path:"/admin/user"
   },
   {
-    name:"Orders", path:"/drashboard/orders"
+    name:"Orders Management", path:"/admin/order"
+  },
+  {
+    name:"Medicines Management", path:"/admin/medicines"
   }
  ]
 
